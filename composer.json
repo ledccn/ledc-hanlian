@@ -1,0 +1,32 @@
+{
+  "name": "ledc/hanlian",
+  "description": "汉连跨境ERP系统对接SDK",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "david",
+      "email": "367013672@qq.com",
+      "homepage": "https://www.iyuu.cn",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ledc\\HanLian\\": "src/"
+    }
+  },
+  "extra": {
+    "think": {
+      "services": [
+        "Ledc\\HanLian\\Service"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "topthink/framework": "^6.0|^8.0",
+    "ext-json": "*",
+    "ext-curl": "*"
+  }
+}
