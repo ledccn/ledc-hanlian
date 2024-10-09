@@ -43,8 +43,11 @@ $api->updateCustoms();
 ## 二次开发
 
 配置类：`Ledc\HanLian\Config`
+
 HTTP请求客户端基础类：`Ledc\HanLian\HttpClient`
+
 API客户端：`Ledc\HanLian\MerchantApi`
+
 响应类：`Ledc\HanLian\HttpResponse`
 
 你可以继承以上几个类，扩展您需要的功能。
