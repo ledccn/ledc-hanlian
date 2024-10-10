@@ -93,6 +93,6 @@ class MerchantApi extends HttpClient
     public function updateCustoms(string $OriginOrderNo, int $CustomsStatus, string $CustomsRemark, string $ManifestOrderNo, string $CustomsSuccessTime = ''): HttpResponse
     {
         $data = array_filter(compact('OriginOrderNo', 'CustomsStatus', 'CustomsRemark', 'ManifestOrderNo', 'CustomsSuccessTime'));
-        return $this->postRequest('/merchant/customsStatus', $data);
+        return $this->postRequest('/merchant/updateCustoms', $data);
     }
 }
