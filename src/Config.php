@@ -11,6 +11,9 @@ use Ledc\HanLian\Contracts\Config as ConfigContract;
  * @property string $app_key 生产环境appKey
  * @property string $app_secret 生产环境appSecret
  * @property string $warehouse_no 仓库编码
+ * @property string $shop_no 门店编码
+ * @property string $partner_no 分销商编码
+ * @property string $logistics_no 物流简码
  */
 class Config extends ConfigContract
 {
