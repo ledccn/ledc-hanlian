@@ -65,6 +65,33 @@ class MerchantApi extends HttpClient
     }
 
     /**
+     * 分销商报关销售单查询接口
+     * - 只有推送报关后,这个接口才可以查到,不然是提示无记录的
+     * @param array $ErpCodes 销售单号集合（销售单单号 SalesCode、来源单号 OriginCode 二选一）
+     * @param string $ModifyTimeStart 开始下单时间（销售单号为空的情况下不可为空），格式：2018-01-08 13:23:23
+     * @param string $ModifyTimeEnd 结束下单时间（销售单号为空的情况下不可为空），，格式：2018-01-08 13:23:23
+     * @return HttpResponse
+     */
+    public function customsOrderQuery(array $ErpCodes = [], string $ModifyTimeStart = '', string $ModifyTimeEnd = ''): HttpResponse
+    {
+        if (empty($ErpCodes) && (empty($ModifyTimeStart) || empty($ModifyTimeEnd))) {
+            throw new InvalidArgumentException('销售单为空时，开始时间和下单时间必填');
+        }
+        $data = array_filter(compact('ErpCodes', 'ModifyTimeStart', 'ModifyTimeEnd'));
+        return $this->postRequest('/merchant/customsorderquery', $data);
+    }
+
+    /**
+     * 物流公司查询
+     * - 仅用于创建订单的物流公司编码,查询接口的承运商编码请找运营人员
+     * @return HttpResponse
+     */
+    public function courierQuery(): HttpResponse
+    {
+        return $this->postRequest('/courier/query', []);
+    }
+
+    /**
      * 查询报关状态单
      * @param array $ErpCodes 销售单号集合
      * @param string $ModifyTimeStart 开始下单时间（销售单号为空的情况下不可为空），格式：2018-01-08 13:23:23
